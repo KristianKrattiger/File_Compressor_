@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/workspaces/File_Compressor_/include/compressor.h
+string
+-
+iostream
+-
+
+/workspaces/File_Compressor_/src/compressor.cpp
+compressor.h
+/workspaces/File_Compressor_/src/compressor.h
+fstream
+-
+
