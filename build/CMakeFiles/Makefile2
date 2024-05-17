@@ -74,12 +74,12 @@ clean: CMakeFiles/File_Compressor_.dir/clean
 CMakeFiles/File_Compressor_.dir/all:
 	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/depend
 	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/File_Compressor_/build/CMakeFiles --progress-num=1,2,3 "Built target File_Compressor_"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/File_Compressor_/build/CMakeFiles --progress-num=1,2,3,4 "Built target File_Compressor_"
 .PHONY : CMakeFiles/File_Compressor_.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/File_Compressor_.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/File_Compressor_/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/File_Compressor_/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/File_Compressor_.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/File_Compressor_/build/CMakeFiles 0
 .PHONY : CMakeFiles/File_Compressor_.dir/rule

@@ -60,42 +60,57 @@ include CMakeFiles/File_Compressor_.dir/flags.make
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o: CMakeFiles/File_Compressor_.dir/flags.make
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o: /workspaces/File_Compressor_/src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/File_Compressor_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o -c /workspaces/File_Compressor_/src/main.cpp
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o -c /workspaces/File_Compressor_/src/main.cpp
 
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/File_Compressor_/src/main.cpp > CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/File_Compressor_/src/main.cpp > CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.i
 
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/File_Compressor_/src/main.cpp -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/File_Compressor_/src/main.cpp -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.s
 
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o: CMakeFiles/File_Compressor_.dir/flags.make
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o: /workspaces/File_Compressor_/src/compressor.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/File_Compressor_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o -c /workspaces/File_Compressor_/src/compressor.cpp
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o -c /workspaces/File_Compressor_/src/compressor.cpp
 
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/File_Compressor_/src/compressor.cpp > CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/File_Compressor_/src/compressor.cpp > CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.i
 
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/File_Compressor_/src/compressor.cpp -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/File_Compressor_/src/compressor.cpp -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.s
+
+CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o: CMakeFiles/File_Compressor_.dir/flags.make
+CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o: /workspaces/File_Compressor_/src/MinHeap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/File_Compressor_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o"
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o -c /workspaces/File_Compressor_/src/MinHeap.cpp
+
+CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/File_Compressor_/src/MinHeap.cpp > CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.i
+
+CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/File_Compressor_/src/MinHeap.cpp -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.s
 
 # Object files for target File_Compressor_
 File_Compressor__OBJECTS = \
 "CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o" \
-"CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o"
+"CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o" \
+"CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o"
 
 # External object files for target File_Compressor_
 File_Compressor__EXTERNAL_OBJECTS =
 
 File_Compressor_: CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o
 File_Compressor_: CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o
+File_Compressor_: CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o
 File_Compressor_: CMakeFiles/File_Compressor_.dir/build.make
 File_Compressor_: CMakeFiles/File_Compressor_.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspaces/File_Compressor_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable File_Compressor_"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspaces/File_Compressor_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable File_Compressor_"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/File_Compressor_.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

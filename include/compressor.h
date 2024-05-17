@@ -1,9 +1,13 @@
 #pragma once
+#include "MinHeap.h"
 #include <string>
-#include <iostream>
+#include<unordered_map>
 
 namespace compressor{
-    void compress(const std::string& inputFileName, const std::string& outputFileName);
+    extern std::unordered_map<char, unsigned> frequencyMap;
+    MinHeap firstTree;
+    std::string readFile(const std::string& filePath);
 
+    void compress(const std::string& inputFileName, const std::string& outputFileName);
     void decompressor(const std::string& inputFileName, const std::string& outputFileName);
 }

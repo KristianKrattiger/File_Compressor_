@@ -123,6 +123,33 @@ File_Compressor_/fast:
 	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/build
 .PHONY : File_Compressor_/fast
 
+workspaces/File_Compressor_/src/MinHeap.o: workspaces/File_Compressor_/src/MinHeap.cpp.o
+
+.PHONY : workspaces/File_Compressor_/src/MinHeap.o
+
+# target to build an object file
+workspaces/File_Compressor_/src/MinHeap.cpp.o:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o
+.PHONY : workspaces/File_Compressor_/src/MinHeap.cpp.o
+
+workspaces/File_Compressor_/src/MinHeap.i: workspaces/File_Compressor_/src/MinHeap.cpp.i
+
+.PHONY : workspaces/File_Compressor_/src/MinHeap.i
+
+# target to preprocess a source file
+workspaces/File_Compressor_/src/MinHeap.cpp.i:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.i
+.PHONY : workspaces/File_Compressor_/src/MinHeap.cpp.i
+
+workspaces/File_Compressor_/src/MinHeap.s: workspaces/File_Compressor_/src/MinHeap.cpp.s
+
+.PHONY : workspaces/File_Compressor_/src/MinHeap.s
+
+# target to generate assembly for a file
+workspaces/File_Compressor_/src/MinHeap.cpp.s:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.s
+.PHONY : workspaces/File_Compressor_/src/MinHeap.cpp.s
+
 workspaces/File_Compressor_/src/compressor.o: workspaces/File_Compressor_/src/compressor.cpp.o
 
 .PHONY : workspaces/File_Compressor_/src/compressor.o
@@ -186,6 +213,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... File_Compressor_"
+	@echo "... workspaces/File_Compressor_/src/MinHeap.o"
+	@echo "... workspaces/File_Compressor_/src/MinHeap.i"
+	@echo "... workspaces/File_Compressor_/src/MinHeap.s"
 	@echo "... workspaces/File_Compressor_/src/compressor.o"
 	@echo "... workspaces/File_Compressor_/src/compressor.i"
 	@echo "... workspaces/File_Compressor_/src/compressor.s"

@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o  -o File_Compressor_ 
+/usr/bin/clang++  -g   CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o  -o File_Compressor_ 

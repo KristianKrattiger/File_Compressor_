@@ -5,7 +5,14 @@
 #include <functional>
 
 // Forward declaration of HuffmanNode
-struct HuffmanNode;
+struct HuffmanNode {
+    char data; // Data stored in the node
+    unsigned frequency; // Frequency of the data
+    HuffmanNode* left; // Pointer to the left child
+    HuffmanNode* right; // Pointer to the right child
+
+    HuffmanNode(char data, unsigned frequency) : data(data), frequency(frequency), left(nullptr), right(nullptr) {}
+};
 
 // Comparator for the MinHeap
 struct HuffmanCompare {

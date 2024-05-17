@@ -1,14 +1,42 @@
 #include "compressor.h"
 #include <fstream>
+#include <iostream>
+#include <unordered_map>
+
+
+using namespace std;
 
 namespace compressor{
-    void compress(const std::string& inputFileName,
-                     const std::string& outputFileName){
-        //code
+    unordered_map<char, unsigned> frequencyMap;
+
+    string readFile(const string& filePath) { 
+        ifstream inFile(filePath, ios::binary); // Open in binary mode to preserve all data
+        
+        if (!inFile) {
+            std::cerr << "Cannot open file: " << filePath << endl;
+            return "";
+        }
+
+        // Read entire file into a frequency map
+        char tempChar;
+        while (inFile.get(tempChar)) {
+            frequencyMap[tempChar]++;
+        }
+
+        inFile.close(); // Close the file
+        return "File successfully read.\n";
     }
 
-    void decompressor(const std::string& inputFileName,
-                         const std::string& outputFileName){
+    void compress(const string& inputFileName,
+                     const string& outputFileName){;
+        for (const auto& pair : frequencyMap){
+            HuffmanNode* newNode = new HuffmanNode(pair.first, pair.second);
+            firstTree.insert(newNode);
+        }
+    }
 
-     }
+    void decompressor(const string& inputFileName,
+                         const string& outputFileName){
+        //code
+    }
 }

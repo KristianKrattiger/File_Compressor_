@@ -1,14 +1,15 @@
 #include "MinHeap.h"
 #include <algorithm>
 
-struct HuffmanNode{
-    char character;
-    unsigned frequency = 0;
-    HuffmanNode *lLink, *rLink;
+// struct HuffmanNode {
+//     char character;
+//     unsigned frequency;
+//     HuffmanNode* llink;
+//     HuffmanNode* rlink;
 
-    HuffmanNode(char ch, unsigned freq)
-        : character(ch), frequency(freq), lLink(nullptr), rLink(nullptr) {}
-};
+//     HuffmanNode(char ch, unsigned freq)
+//         : character(ch), frequency(freq), llink(nullptr), rlink(nullptr) {}
+// };
 
 //ensures the integrity of the min-ordered heap
 bool HuffmanCompare::operator()(HuffmanNode* l, HuffmanNode* r){
