@@ -8,6 +8,7 @@ using namespace std;
 
 namespace compressor{
     unordered_map<char, unsigned> frequencyMap;
+    MinHeap firstTree;
 
     string readFile(const string& filePath) { 
         ifstream inFile(filePath, ios::binary); // Open in binary mode to preserve all data
@@ -29,7 +30,8 @@ namespace compressor{
 
     void compress(const string& inputFileName,
                      const string& outputFileName){;
-        for (const auto& pair : frequencyMap){
+         // populate the min heap            
+        for (const auto& pair : frequencyMap){ 
             HuffmanNode* newNode = new HuffmanNode(pair.first, pair.second);
             firstTree.insert(newNode);
         }

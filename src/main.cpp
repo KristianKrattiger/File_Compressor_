@@ -9,10 +9,12 @@ int main(){
     int input = 0;
     string filename;
     bool isValidOption = true;
+
     //ui
     cout << "Welcome to file comprex.\n"
     <<"Enter 1 to upload file\n\n"
-    <<"Enter 2 to end program\n";
+    <<"Enter 2 to end program\n\n"
+    <<"Enter option: ";
 
     cin >> input;
     cout << "\n";
@@ -20,20 +22,23 @@ int main(){
     while(isValidOption){
         switch(input){
             case 1:
-                cout << "Please enter file name with the extension.\n";
+                cout << "Please enter file name with the extension: ";
                 cin >> filename;
                 readFile(filename);
                 isValidOption = false;
 
                 cout << "File successfully opened!\n";
+                compress(filename, filename + "Compressed.txt");
+                compressor::firstTree.print();
+
                 break;
 
             case 2:
                 break;
 
             default:
-            cout << "Please enter a valid option.\n";
-            isValidOption = false;
+                cout << "Please enter a valid option.\n";
+                isValidOption = false;
             break;
         }
     }

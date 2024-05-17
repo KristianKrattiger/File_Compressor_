@@ -23,6 +23,7 @@ class MinHeap {
 public:
     MinHeap() = default; // Default constructor
     void insert(HuffmanNode* node); // Insert a node into the heap
+    void print(); // Print the Heap
     HuffmanNode* extractMin(); // Extract the node with the smallest frequency
     bool isEmpty() const; // Check if the heap is empty
 

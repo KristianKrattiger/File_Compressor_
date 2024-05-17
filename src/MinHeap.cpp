@@ -1,24 +1,22 @@
 #include "MinHeap.h"
 #include <algorithm>
-
-// struct HuffmanNode {
-//     char character;
-//     unsigned frequency;
-//     HuffmanNode* llink;
-//     HuffmanNode* rlink;
-
-//     HuffmanNode(char ch, unsigned freq)
-//         : character(ch), frequency(freq), llink(nullptr), rlink(nullptr) {}
-// };
+#include <iostream>
 
 //ensures the integrity of the min-ordered heap
 bool HuffmanCompare::operator()(HuffmanNode* l, HuffmanNode* r){
-    return l->frequency > r->frequency;
+    return l->frequency < r->frequency;
 }
 
 void MinHeap::insert(HuffmanNode* node){
     heap.push_back(node); //insert into bottom
     std::push_heap(heap.begin(), heap.end(), HuffmanCompare()); //maintain heap properties
+}
+
+void MinHeap::print(){
+    for (HuffmanNode* node : heap){
+        std::cout << "Character: " << node->data
+                  << ", Frequency: " << node->frequency << std::endl;
+    }
 }
 
 

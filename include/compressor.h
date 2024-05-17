@@ -5,7 +5,7 @@
 
 namespace compressor{
     extern std::unordered_map<char, unsigned> frequencyMap;
-    MinHeap firstTree;
+    extern MinHeap firstTree;
     std::string readFile(const std::string& filePath);
 
     void compress(const std::string& inputFileName, const std::string& outputFileName);
