@@ -12,6 +12,8 @@ struct HuffmanNode {
     HuffmanNode* right; // Pointer to the right child
 
     HuffmanNode(char data, unsigned frequency) : data(data), frequency(frequency), left(nullptr), right(nullptr) {}
+    HuffmanNode(HuffmanNode* left, HuffmanNode* right) : data('\0'), 
+                frequency(left->frequency + right->frequency), left(left), right(right) {}
 };
 
 // Comparator for the MinHeap
@@ -26,7 +28,7 @@ public:
     void print(); // Print the Heap
     HuffmanNode* extractMin(); // Extract the node with the smallest frequency
     bool isEmpty() const; // Check if the heap is empty
-
+    int size() const; // Return the size of the heap
 private:
     std::vector<HuffmanNode*> heap; // Vector to store heap elements
 };

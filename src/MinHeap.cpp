@@ -30,3 +30,7 @@ HuffmanNode* MinHeap::extractMin() {
 bool MinHeap::isEmpty() const {
     return heap.empty();
 }
+
+int MinHeap::size() const{
+    return heap.size();
+}

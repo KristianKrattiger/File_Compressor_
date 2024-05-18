@@ -35,6 +35,16 @@ namespace compressor{
             HuffmanNode* newNode = new HuffmanNode(pair.first, pair.second);
             firstTree.insert(newNode);
         }
+
+        //create the huffman tree
+        while (firstTree.size() > 1){
+            HuffmanNode* left = firstTree.extractMin();
+            HuffmanNode* right = firstTree.extractMin();
+            HuffmanNode* parentNode = new HuffmanNode(left, right);
+            parentNode->left = left;
+            parentNode->right = right;
+            firstTree.insert(parentNode);
+        }
     }
 
     void decompressor(const string& inputFileName,
