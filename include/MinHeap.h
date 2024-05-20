@@ -21,6 +21,9 @@ struct HuffmanCompare {
     bool operator()(HuffmanNode* l, HuffmanNode* r);
 };
 
+// encoding the Huffman tree
+void encode(HuffmanNode* root, std::string code, std::unordered_map<char, std::string>& HuffmanCode);
+
 class MinHeap {
 public:
     MinHeap() = default; // Default constructor

@@ -30,3 +30,11 @@ iostream
 unordered_map
 -
 
+/workspaces/File_Compressor_/src/main.cpp
+compressor.h
+/workspaces/File_Compressor_/src/compressor.h
+MinHeap.h
+/workspaces/File_Compressor_/src/MinHeap.h
+iostream
+-
+

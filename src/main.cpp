@@ -26,11 +26,8 @@ int main(){
                 cin >> filename;
                 readFile(filename);
                 isValidOption = false;
-
                 cout << "File successfully opened!\n";
                 compress(filename, filename + "Compressed.txt");
-                compressor::firstTree.print();
-
                 break;
 
             case 2:

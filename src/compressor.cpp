@@ -45,6 +45,29 @@ namespace compressor{
             parentNode->right = right;
             firstTree.insert(parentNode);
         }
+
+        //remove root from heap
+        HuffmanNode* root = firstTree.extractMin();
+
+        //encode the Huffman tree
+        std::string code = "";
+        std::unordered_map<char, std::string> HuffmanCode;
+        encode(root, code, HuffmanCode);
+
+        // Write the encoded data to the output file
+        ofstream outFile(outputFileName, ios::binary); // Open in binary mode to preserve all data
+
+        if (!outFile) {
+            cerr << "Cannot create file: " << outputFileName << endl;
+            return;
+        }
+
+        for (const auto& pair : HuffmanCode) {
+            outFile << pair.first << pair.second << endl;
+        }
+
+        outFile.close(); // Close the file
+
     }
 
     void decompressor(const string& inputFileName,
