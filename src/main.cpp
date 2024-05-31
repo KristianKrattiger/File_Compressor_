@@ -1,48 +1,56 @@
 #include "compressor.h"
-#include "MinHeap.h"
+#include "huffman.h"
 #include <iostream>
 
 using namespace std;
 using namespace compressor;
 
-int main(){
+int main() {
     int input = 0;
     string filename;
     bool isValidOption = true;
 
-    //ui
+    // ui
     cout << "Welcome to file comprex.\n"
-    <<"Enter 1 to upload file\n\n"
-    <<"Enter 2 to end program\n\n"
-    <<"Enter option: ";
+         << "Enter 1 to upload file\n\n"
+         << "Enter 2 to decompress a file\n\n"
+         << "Enter 3 to end program\n\n"
+         << "Enter option: ";
 
     cin >> input;
     cout << "\n";
     
-    while(isValidOption){
-        switch(input){
+    while (isValidOption) {
+        switch (input) {
             case 1:
-                cout << "Please enter file name with the extension: ";
+                cout << "Please enter file name without the extension (must be .txt): ";
                 cin >> filename;
-                readFile(filename);
+                cout << readFile(filename + ".txt");
                 isValidOption = false;
                 cout << "File successfully opened!\n";
-                compress(filename, filename + "Compressed.txt");
+                compress(filename + ".txt", filename + "Compressed.txt");
+                cout << "File successfully compressed!\n";
                 break;
 
             case 2:
+                cout << "Please enter file name without the extension (must be .txt): ";
+                cin >> filename;
+                decompress(filename + ".txt", filename + "Decompressed.txt");
+                cout << "File successfully decompressed!\n";
+                isValidOption = false;
+                break;
+
+            case 3:
+                cout << "Program ended.\n";
+                isValidOption = false;
                 break;
 
             default:
                 cout << "Please enter a valid option.\n";
-                isValidOption = false;
-            break;
+                cin >> input;
+                break;
         }
     }
 
-    //Print map
-    // for (const auto& pair : compressor::frequencyMap) {
-    //     std::cout << "Character: " << pair.first << ", Frequency: " << pair.second << std::endl;
-    // }
-    // return 0;
+    return 0;
 }

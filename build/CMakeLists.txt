@@ -12,7 +12,7 @@ include_directories(/workspaces/File_Compressor_/include)
 add_executable(File_Compressor_
                 /workspaces/File_Compressor_/src/main.cpp 
                 /workspaces/File_Compressor_/src/compressor.cpp
-                /workspaces/File_Compressor_/src/MinHeap.cpp)
+                /workspaces/File_Compressor_/src/huffman.cpp)
 
 # If there are additional libraries in the libs directory
 # add_subdirectory(libs)

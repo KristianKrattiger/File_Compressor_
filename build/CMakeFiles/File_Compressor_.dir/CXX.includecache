@@ -6,35 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/workspaces/File_Compressor_/include/MinHeap.h
+/workspaces/File_Compressor_/include/huffman.h
 vector
 -
 functional
 -
-
-/workspaces/File_Compressor_/include/compressor.h
-MinHeap.h
-/workspaces/File_Compressor_/include/MinHeap.h
-string
+map
 -
-unordered_map
--
-
-/workspaces/File_Compressor_/src/compressor.cpp
-compressor.h
-/workspaces/File_Compressor_/src/compressor.h
 fstream
 -
-iostream
--
-unordered_map
--
 
-/workspaces/File_Compressor_/src/main.cpp
-compressor.h
-/workspaces/File_Compressor_/src/compressor.h
-MinHeap.h
-/workspaces/File_Compressor_/src/MinHeap.h
+/workspaces/File_Compressor_/src/huffman.cpp
+huffman.h
+/workspaces/File_Compressor_/src/huffman.h
+algorithm
+-
 iostream
 -
 
