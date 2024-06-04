@@ -1,12 +1,10 @@
 #ifndef HUFFMAN_H
 #define HUFFMAN_H
 
-
 #include <vector>
 #include <functional>
 #include <map>
 #include <fstream>
-
 
 // Forward declaration of HuffmanNode
 class HuffmanNode {
@@ -17,15 +15,13 @@ private:
     HuffmanNode* right; // Pointer to the right child
 public:    
     HuffmanNode() : data('\0'), frequency(0), left(nullptr), right(nullptr) {} // Default constructor
-    HuffmanNode(char data, unsigned frequency) : data(data),
+    HuffmanNode(char data, unsigned frequency) : data(data), 
                 frequency(frequency), left(nullptr), right(nullptr) {} //leaf node constructor
-    HuffmanNode(HuffmanNode* left, HuffmanNode* right) : data('\0'),
+    HuffmanNode(HuffmanNode* left, HuffmanNode* right) : data('\0'), 
                 frequency(left->frequency + right->frequency), left(left), right(right) {} //internal node constructor
     HuffmanNode(const HuffmanNode& other) : data(other.data), frequency(other.frequency), left(other.left), right(other.right) {} // Copy constructor
 
-
-    HuffmanNode& buildHuffmanTree(std::map<char, unsigned>& frequency_map);
-
+    HuffmanNode& buildHuffmanTree(std::map<char, unsigned>& frequency_map); 
 
     HuffmanNode& operator=(HuffmanNode&& other) { // Move assignment operator
         if (this != &other) {
@@ -37,8 +33,7 @@ public:
             other.right = nullptr;
         }
         return *this;
-    }
-
+    } 
 
     HuffmanNode& operator=(HuffmanNode& other) { // Copy assignment operator
         if (this != &other) {
@@ -48,39 +43,32 @@ public:
             right = other.right;
         }
         return *this;
-    }
-
+    } 
 
     ~HuffmanNode() {
         delete left;
         delete right;
     }
 
-
     HuffmanNode* getLeft();
     HuffmanNode* getRight();
     char getData();
-    unsigned getFrequency();
-
+    unsigned getFrequency(); 
 
     //print the tree
     void printTree(HuffmanNode* root);
-
 
     // Comparator for the MinHeap
     struct HuffmanCompare {
         bool operator()(HuffmanNode* l, HuffmanNode* r);
     };
 
-
     // encoding the Huffman tree
     void encode(const std::string& code, std::map<char, std::string>& HuffmanCode);
-
 
     // decode the Huffman tree
     void decode(HuffmanNode* huffmanPtr, std::ifstream& infile, std::ofstream& outfile);
 };
-
 
 class MinHeap {
 public:

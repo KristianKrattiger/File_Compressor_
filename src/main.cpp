@@ -32,12 +32,10 @@
 using namespace std;
 using namespace compressor;
 
-
 int main() {
     int input = 0;
     string filename;
     bool isValidOption = true;
-
 
     // ui
     cout << "Welcome to file comprex.\n"
@@ -46,10 +44,9 @@ int main() {
          << "Enter 3 to end program\n\n"
          << "Enter option: ";
 
-
     cin >> input;
     cout << "\n";
-   
+    
     while (isValidOption) {
         switch (input) {
             case 1:
@@ -71,7 +68,6 @@ int main() {
                 isValidOption = false;
                 break;
 
-
             case 3:
                 cout << "Program ended.\n";
                 isValidOption = false;
@@ -84,7 +80,6 @@ int main() {
                 break;
         }
     }
-
 
     return 0;
 }

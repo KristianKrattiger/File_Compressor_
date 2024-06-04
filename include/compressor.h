@@ -4,9 +4,7 @@
 #include <string>
 #include<map>
 
-
 namespace compressor{
-
 
     extern std::map<char, unsigned> frequencyMap;
     extern std::map<char, std::string> HuffmanCode;
@@ -16,6 +14,5 @@ namespace compressor{
     void compress(const std::string& inputFileName, const std::string& outputFileName);
     void decompress(const std::string& inputFileName, const std::string& outputFileName);
 }
-
 
 #endif

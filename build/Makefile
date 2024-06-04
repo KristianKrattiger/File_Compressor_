@@ -123,33 +123,6 @@ File_Compressor_/fast:
 	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/build
 .PHONY : File_Compressor_/fast
 
-workspaces/File_Compressor_/src/MinHeap.o: workspaces/File_Compressor_/src/MinHeap.cpp.o
-
-.PHONY : workspaces/File_Compressor_/src/MinHeap.o
-
-# target to build an object file
-workspaces/File_Compressor_/src/MinHeap.cpp.o:
-	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.o
-.PHONY : workspaces/File_Compressor_/src/MinHeap.cpp.o
-
-workspaces/File_Compressor_/src/MinHeap.i: workspaces/File_Compressor_/src/MinHeap.cpp.i
-
-.PHONY : workspaces/File_Compressor_/src/MinHeap.i
-
-# target to preprocess a source file
-workspaces/File_Compressor_/src/MinHeap.cpp.i:
-	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.i
-.PHONY : workspaces/File_Compressor_/src/MinHeap.cpp.i
-
-workspaces/File_Compressor_/src/MinHeap.s: workspaces/File_Compressor_/src/MinHeap.cpp.s
-
-.PHONY : workspaces/File_Compressor_/src/MinHeap.s
-
-# target to generate assembly for a file
-workspaces/File_Compressor_/src/MinHeap.cpp.s:
-	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/MinHeap.cpp.s
-.PHONY : workspaces/File_Compressor_/src/MinHeap.cpp.s
-
 workspaces/File_Compressor_/src/compressor.o: workspaces/File_Compressor_/src/compressor.cpp.o
 
 .PHONY : workspaces/File_Compressor_/src/compressor.o
@@ -176,6 +149,33 @@ workspaces/File_Compressor_/src/compressor.s: workspaces/File_Compressor_/src/co
 workspaces/File_Compressor_/src/compressor.cpp.s:
 	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.s
 .PHONY : workspaces/File_Compressor_/src/compressor.cpp.s
+
+workspaces/File_Compressor_/src/huffman.o: workspaces/File_Compressor_/src/huffman.cpp.o
+
+.PHONY : workspaces/File_Compressor_/src/huffman.o
+
+# target to build an object file
+workspaces/File_Compressor_/src/huffman.cpp.o:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/huffman.cpp.o
+.PHONY : workspaces/File_Compressor_/src/huffman.cpp.o
+
+workspaces/File_Compressor_/src/huffman.i: workspaces/File_Compressor_/src/huffman.cpp.i
+
+.PHONY : workspaces/File_Compressor_/src/huffman.i
+
+# target to preprocess a source file
+workspaces/File_Compressor_/src/huffman.cpp.i:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/huffman.cpp.i
+.PHONY : workspaces/File_Compressor_/src/huffman.cpp.i
+
+workspaces/File_Compressor_/src/huffman.s: workspaces/File_Compressor_/src/huffman.cpp.s
+
+.PHONY : workspaces/File_Compressor_/src/huffman.s
+
+# target to generate assembly for a file
+workspaces/File_Compressor_/src/huffman.cpp.s:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/huffman.cpp.s
+.PHONY : workspaces/File_Compressor_/src/huffman.cpp.s
 
 workspaces/File_Compressor_/src/main.o: workspaces/File_Compressor_/src/main.cpp.o
 
@@ -213,12 +213,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... File_Compressor_"
-	@echo "... workspaces/File_Compressor_/src/MinHeap.o"
-	@echo "... workspaces/File_Compressor_/src/MinHeap.i"
-	@echo "... workspaces/File_Compressor_/src/MinHeap.s"
 	@echo "... workspaces/File_Compressor_/src/compressor.o"
 	@echo "... workspaces/File_Compressor_/src/compressor.i"
 	@echo "... workspaces/File_Compressor_/src/compressor.s"
+	@echo "... workspaces/File_Compressor_/src/huffman.o"
+	@echo "... workspaces/File_Compressor_/src/huffman.i"
+	@echo "... workspaces/File_Compressor_/src/huffman.s"
 	@echo "... workspaces/File_Compressor_/src/main.o"
 	@echo "... workspaces/File_Compressor_/src/main.i"
 	@echo "... workspaces/File_Compressor_/src/main.s"
