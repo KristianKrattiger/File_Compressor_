@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/workspaces/File_Compressor_/include/compressor.h
+huffman.h
+/workspaces/File_Compressor_/include/huffman.h
+string
+-
+map
+-
+
 /workspaces/File_Compressor_/include/huffman.h
 vector
 -
@@ -16,11 +24,13 @@ map
 fstream
 -
 
-/workspaces/File_Compressor_/src/huffman.cpp
-huffman.h
-/workspaces/File_Compressor_/src/huffman.h
-algorithm
+/workspaces/File_Compressor_/src/compressor.cpp
+compressor.h
+/workspaces/File_Compressor_/src/compressor.h
+fstream
 -
 iostream
+-
+map
 -
 

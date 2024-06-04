@@ -43,12 +43,7 @@ namespace compressor {
     // MinHeap to build the Huffman tree
     MinHeap theMinHeap;
 
-    /**
-     * Build the Huffman tree.
-     * @param frequency_map The map containing character frequencies.
-     * @param minHeap The MinHeap to build the tree.
-     * @return The root of the Huffman tree.
-     */
+    // Build the Huffman tree.
     HuffmanNode* buildHuffmanTree(map<char, unsigned>& frequency_map, MinHeap& minHeap) {
         for (const auto& pair : frequency_map) {
             minHeap.insert(new HuffmanNode(pair.first, pair.second));
@@ -64,11 +59,7 @@ namespace compressor {
         return minHeap.extractMin();  // Caller must manage the returned root
     }
 
-    /**
-     * Read the contents of a file and calculate character frequencies.
-     * @param filePath The path of the file to read.
-     * @return A string indicating the success or failure of the operation.
-     */
+    // Read the contents of a file and calculate character frequencies.
     string readFile(const string& filePath) {
         ifstream inFile(filePath, ios::binary); // Open in binary mode to preserve all data
         if (!inFile) {
@@ -92,11 +83,7 @@ namespace compressor {
         return "File successfully read.\n";
     }
 
-    /**
-     * Compress a file using Huffman coding.
-     * @param inputFileName The name of the input file.
-     * @param outputFileName The name of the output file.
-     */
+    // Compress a file using Huffman coding.
     void compress(const string& inputFileName, const string& outputFileName) {
         // Build the Huffman tree  
         cout << "\nBuilding the Huffman tree...\n";
@@ -136,11 +123,7 @@ namespace compressor {
         outFile.close();
     }
 
-    /**
-     * Decompress a file using Huffman coding.
-     * @param inputFileName The name of the input file.
-     * @param outputFileName The name of the output file.
-     */
+    // Decompress a file using Huffman coding.
     void decompress(const string& inputFileName, const string& outputFileName) {
         ifstream infile(inputFileName, ios::binary);
         ofstream outfile(outputFileName, ios::binary);
@@ -170,29 +153,4 @@ namespace compressor {
         infile.close();
         outfile.close();
     }
-}
-
-/**
- * @brief Author: [Your Name]
- * 
- * This file contains the implementation of a file compressor using Huffman coding.
- * The compressor provides functions to read a file, compress it using Huffman coding,
- * and decompress a file that was previously compressed using Huffman coding.
- * 
- * The compressor uses a MinHeap to build the Huffman tree and stores the character
- * frequencies in a map. It also provides functions to encode and decode the Huffman tree.
- * 
- * The main functions in this file are:
- * - `readFile`: Reads the contents of a file and calculates character frequencies.
- * - `compress`: Compresses a file using Huffman coding.
- * - `decompress`: Decompresses a file using Huffman coding.
- * 
- * The HuffmanNode class represents a node in the Huffman tree and provides functions
- * to print the tree, encode the tree, and decode the tree.
- * 
- * The MinHeap class is used to build the Huffman tree by maintaining a min-heap of nodes.
- * It provides functions to insert nodes, extract the minimum node, and get the size of the heap.
- * 
- * The `frequency_map` and `HuffmanCode` maps are used to store character frequencies and
- * Huffman codes respectively.
- */
+}  // namespace compressor
