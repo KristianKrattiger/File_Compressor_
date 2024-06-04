@@ -1,4 +1,3 @@
-
 /**
  * @file huffman.cpp
  * @brief Implementation of the MinHeap class and the HuffmanNode class.
@@ -11,11 +10,11 @@
  * child nodes, getting the data and frequency of the node, printing the tree, encoding and decoding the data,
  * and assigning binary codes to characters.
  * 
- * @author [Kristian Krattiger]
  */
 #include "huffman.h"
 #include <algorithm>
 #include <iostream>
+#include <bitset> // Add this include for bitset
 
 // Ensures the integrity of the min-ordered heap
 bool HuffmanNode::HuffmanCompare::operator()(HuffmanNode* l, HuffmanNode* r) {
@@ -71,34 +70,20 @@ void HuffmanNode::encode(const std::string& code, std::map<char, std::string>& H
 
 // Traverse the tree and decode the binary code to the original string
 void HuffmanNode::decode(HuffmanNode* huffmanPtr, std::ifstream& infile, std::ofstream& outfile) {
-    char bit;
-    while (true) {
-        if (!infile.get(bit)) {
-            if (infile.eof()) {
-                std::cout << "Reached end of file.\n";
-            } else {
-                std::cerr << "Error reading from file.\n";
+    char byte;
+    while (infile.get(byte)) {
+        std::bitset<8> bits(byte);  // Use std::bitset
+        for (int i = 7; i >= 0; --i) {
+            if (!huffmanPtr->getLeft() && !huffmanPtr->getRight()) {
+                outfile.put(huffmanPtr->getData());
+                huffmanPtr = this;
             }
-            break;
+            huffmanPtr = bits[i] ? huffmanPtr->getRight() : huffmanPtr->getLeft();
         }
-        std::cout << "Read bit: " << bit << std::endl;  // Debug: what bit did we read?
+    }
 
-        if (bit == '0') {
-            std::cout << "Going left\n";
-            huffmanPtr = huffmanPtr->getLeft();
-        } else if (bit == '1') {
-            std::cout << "Going right\n";
-            huffmanPtr = huffmanPtr->getRight();
-        } else {
-            std::cerr << "Invalid character in file: " << bit << std::endl;
-            continue;
-        }
-
-        if (!huffmanPtr->getLeft() && !huffmanPtr->getRight()) {
-            std::cout << "Writing " << huffmanPtr->getData() << " to file\n";
-            outfile << huffmanPtr->getData();
-            huffmanPtr = this;  // Assuming 'root' is a pointer to the root of your Huffman tree
-        }
+    if (!huffmanPtr->getLeft() && !huffmanPtr->getRight()) {
+        outfile.put(huffmanPtr->getData());
     }
 }
 

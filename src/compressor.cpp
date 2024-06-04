@@ -1,4 +1,3 @@
-
 /**
  * @file compressor.cpp
  * @brief Implementation of the compressor namespace and the HuffmanNode class.
@@ -24,12 +23,13 @@
  * 
  * The `frequency_map` and `HuffmanCode` maps are used to store character frequencies and Huffman codes respectively.
  * 
- * @author [Kristian Krattiger]
+ * @auth
  */
 #include "compressor.h"
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <bitset> // Add this include for bitset
 
 using namespace std;
 
@@ -104,12 +104,14 @@ namespace compressor {
         }
 
         // Write the frequency table as metadata
-        outFile << frequency_map.size() << '\n';
+        size_t size = frequency_map.size();
+        outFile.write(reinterpret_cast<const char*>(&size), sizeof(size));
         for (const auto& pair : frequency_map) {
-            outFile << pair.first << ' ' << pair.second << '\n';
+            outFile.put(pair.first);
+            outFile.write(reinterpret_cast<const char*>(&pair.second), sizeof(pair.second));
         }
 
-        // Write the encoded content
+        // Read the input file and write the encoded content
         ifstream inFile(inputFileName, ios::binary);
         char tempChar;
         string encodedContent;
@@ -117,7 +119,15 @@ namespace compressor {
             encodedContent += HuffmanCode[tempChar];
         }
 
-        outFile << encodedContent;
+        // Convert the encoded string to binary format
+        while (encodedContent.size() % 8 != 0) {
+            encodedContent += '0'; // Pad with zeros to make a full byte
+        }
+
+        for (size_t i = 0; i < encodedContent.size(); i += 8) {
+            bitset<8> byte(encodedContent.substr(i, 8));
+            outFile.put(static_cast<unsigned char>(byte.to_ulong()));
+        }
 
         inFile.close();
         outFile.close();
@@ -135,15 +145,16 @@ namespace compressor {
 
         // Rebuild the frequency table from the metadata
         size_t frequencyTableSize;
-        infile >> frequencyTableSize;
+        infile.read(reinterpret_cast<char*>(&frequencyTableSize), sizeof(frequencyTableSize));
         frequency_map.clear();
         for (size_t i = 0; i < frequencyTableSize; ++i) {
             char ch;
             unsigned int freq;
-            infile >> ch >> freq;
+            infile.get(ch);
+            infile.read(reinterpret_cast<char*>(&freq), sizeof(freq));
             frequency_map[ch] = freq;
         }
-        
+
         // Build the Huffman tree
         HuffmanNode* root = buildHuffmanTree(frequency_map, theMinHeap);
 
