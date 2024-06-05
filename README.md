@@ -1,6 +1,5 @@
 # File_Compressor_
 
-USER WILL INPUT .ZIP FILE. AND IT SHOULDDDDDDD OUTPUT A COMPRESSED VERSION OF THE FILE!!!!! LETS GIVE THIS A SHOT X)
+This repository contains code for a file compressor. The user will input a .zip file, and the code will output a compressed version of the file. 
 
-
-P.S. This is my first self made repository!
+P.S. This is my first self-made repository!
