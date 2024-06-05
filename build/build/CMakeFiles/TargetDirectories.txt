@@ -1,0 +1,3 @@
+/workspaces/File_Compressor_/build/build/CMakeFiles/edit_cache.dir
+/workspaces/File_Compressor_/build/build/CMakeFiles/rebuild_cache.dir
+/workspaces/File_Compressor_/build/build/CMakeFiles/File_Compressor_.dir
