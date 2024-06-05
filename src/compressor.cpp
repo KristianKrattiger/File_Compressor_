@@ -43,7 +43,7 @@ namespace compressor {
     // MinHeap to build the Huffman tree
     MinHeap theMinHeap;
 
-    // Build the Huffman tree.
+    // Function to build the Huffman Tree later used in compress and decompress
     HuffmanNode* buildHuffmanTree(map<char, unsigned>& frequency_map, MinHeap& minHeap) {
         for (const auto& pair : frequency_map) {
             minHeap.insert(new HuffmanNode(pair.first, pair.second));

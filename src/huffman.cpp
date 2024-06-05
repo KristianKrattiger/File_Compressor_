@@ -72,7 +72,7 @@ void HuffmanNode::encode(const std::string& code, std::map<char, std::string>& H
 void HuffmanNode::decode(HuffmanNode* huffmanPtr, std::ifstream& infile, std::ofstream& outfile) {
     char byte;
     while (infile.get(byte)) {
-        std::bitset<8> bits(byte);  // Use std::bitset
+        std::bitset<8> bits(byte); 
         for (int i = 7; i >= 0; --i) {
             if (!huffmanPtr->getLeft() && !huffmanPtr->getRight()) {
                 outfile.put(huffmanPtr->getData());
