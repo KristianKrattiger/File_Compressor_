@@ -63,7 +63,7 @@ namespace compressor {
     // Function to read the file and generate the frequency map
     string readFile(const fs::path& filePath) {
         std::ifstream inFile(filePath, std::ios::binary); // Open in binary mode to preserve all data
-        if (!inFile) {
+        if (fs::exists(filePath)){
             std::cerr << "Cannot open file: " << filePath << std::endl;
             return "";
         }
