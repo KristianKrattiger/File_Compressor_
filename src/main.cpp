@@ -23,75 +23,54 @@
  * Huffman codes respectively.
  */
 
-
 #include "compressor.h"
 #include "huffman.h"
 #include <iostream>
-
+#include <filesystem>
 
 using namespace std;
 using namespace compressor;
+namespace fs = std::filesystem;
 
 int main() {
-    int input = 0;
-    string filename;
-    bool isValidOption = true, done = true;
+    fs::path inputFileName, outputFileName;
+    char choice;
 
-    // ui
-    // cout << "Welcome to file comprex.\n"
-    //      << "Enter 1 to upload file\n\n"
-    //      << "Enter 2 to decompress a file\n\n"
-    //      << "Enter 3 to end program\n\n"
-    //      << "Enter option: ";
+    std::cout << "|WELCOME TO THE FILE COMPRESSOR|" << std::endl
+              << "--------------------------------" << std::endl;
+    std::cout << "This program uses Huffman coding to compress and decompress files." << std::endl;
 
-   
-    // do{
-    //     cin >> input;
-    //     cout << "\n";
-    //     while (isValidOption) {
-    //         switch (input) {
-    //             case 1:
-    //                 cout << "Please enter file name without the extension (must be .txt): ";
-    //                 cin >> filename;
-    //                 cout << readFile(filename + ".txt");
-    //                 isValidOption = false;
-    //                 cout << "File successfully opened!\n";
-    //                 compress(filename + ".txt", filename + "Compressed.txt");
-    //                 cout << "File successfully compressed!\n";
-    //                 break;
+    while (true) {
+        std::cout << "Enter the path to the file you want to compress:" << std::endl;
+        std::cout << "Example: " << fs::current_path() / "example.txt" << std::endl;  // Provide an example based on the current directory
+        std::cin >> inputFileName;
+        inputFileName = fs::absolute(inputFileName);  // Convert to absolute path
+        std::cout << readFile(inputFileName) << std::endl;
 
+        std::cout << "Enter the path to save the compressed file:" << std::endl;
+        std::cout << "Example: " << fs::current_path() / "example_compressed.bin" << std::endl;  // Provide an example
+        std::cin >> outputFileName;
+        outputFileName = fs::absolute(outputFileName);
+        compress(inputFileName, outputFileName);
+        std::cout << "File successfully compressed to " << outputFileName << std::endl;
 
-    //             case 2:
-    //                 cout << "Please enter file name without the extension (must be .txt): ";
-    //                 cin >> filename;
-    //                 decompress(filename + ".txt", filename + "Decompressed.txt");
-    //                 cout << "File successfully decompressed!\n";
-    //                 isValidOption = false;
-    //                 break;
-
-    //             case 3:
-    //                 cout << "Program ended.\n";
-    //                 isValidOption = false;
-    //                 done = false;
-    //                 break;
-
-
-    //             default:
-    //                 cout << "Please enter a valid option.\n";
-    //                 cin >> input;
-    //                 break;
-    //         }
-    //     }
-    //     cout << "Enter 1 to upload file\n\n"
-    //          << "Enter 2 to decompress a file\n\n"
-    //          << "Enter 3 to end program\n\n"
-    //          << "Enter option: ";
-    //          isValidOption = true;
-    // } while(done);
-
-    cout << readFile("alice29.txt");
-    compress("alice29.txt", "alice29Compressed.txt");
-    decompress("alice29Compressed.txt", "alice29Decompressed.txt");
+        std::cout << "Do you want to decompress a file? (y/n): ";
+        std::cin >> choice;
+        if (choice == 'y' || choice == 'Y') {
+            std::cout << "Enter the path to the file you want to decompress:" << std::endl;
+            std::cout << "Example: " << fs::current_path() / "example_compressed.bin" << std::endl;
+            std::cin >> inputFileName;
+            inputFileName = fs::absolute(inputFileName);
+            std::cout << "Enter the path to save the decompressed file:" << std::endl;
+            std::cout << "Example: " << fs::current_path() / "example_decompressed.txt" << std::endl;
+            std::cin >> outputFileName;
+            outputFileName = fs::absolute(outputFileName);
+            decompress(inputFileName, outputFileName);
+            std::cout << "File successfully decompressed to " << outputFileName << std::endl;
+        } else {
+            break;
+        }
+    }
 
     return 0;
 }

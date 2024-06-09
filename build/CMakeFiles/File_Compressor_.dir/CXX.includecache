@@ -13,6 +13,8 @@ string
 -
 map
 -
+filesystem
+-
 
 /workspaces/File_Compressor_/include/huffman.h
 vector
@@ -30,5 +32,7 @@ compressor.h
 huffman.h
 /workspaces/File_Compressor_/src/huffman.h
 iostream
+-
+filesystem
 -
 

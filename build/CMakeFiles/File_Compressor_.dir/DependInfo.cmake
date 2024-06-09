@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/workspaces/File_Compressor_/src/huffman.cpp" "/workspaces/File_Compressor_/build/CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/huffman.cpp.o"
   "/workspaces/File_Compressor_/src/main.cpp" "/workspaces/File_Compressor_/build/CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -1,17 +1,17 @@
 [
 {
   "directory": "/workspaces/File_Compressor_/build",
-  "command": "/usr/bin/c++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o -c /workspaces/File_Compressor_/src/main.cpp",
+  "command": "/usr/bin/clang++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/main.cpp.o -c /workspaces/File_Compressor_/src/main.cpp",
   "file": "/workspaces/File_Compressor_/src/main.cpp"
 },
 {
   "directory": "/workspaces/File_Compressor_/build",
-  "command": "/usr/bin/c++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o -c /workspaces/File_Compressor_/src/compressor.cpp",
+  "command": "/usr/bin/clang++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o -c /workspaces/File_Compressor_/src/compressor.cpp",
   "file": "/workspaces/File_Compressor_/src/compressor.cpp"
 },
 {
   "directory": "/workspaces/File_Compressor_/build",
-  "command": "/usr/bin/c++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/huffman.cpp.o -c /workspaces/File_Compressor_/src/huffman.cpp",
+  "command": "/usr/bin/clang++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/huffman.cpp.o -c /workspaces/File_Compressor_/src/huffman.cpp",
   "file": "/workspaces/File_Compressor_/src/huffman.cpp"
 }
 ]

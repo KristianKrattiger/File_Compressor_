@@ -26,13 +26,14 @@
  * @auth
  */
 #include "compressor.h"
+#include "huffman.h"
+
 #include <fstream>
 #include <iostream>
 #include <map>
-#include <bitset> // Add this include for bitset
+#include <bitset>
 
 using namespace std;
-
 namespace compressor {
     // Map to store character frequencies
     map<char, unsigned int> frequency_map;
@@ -59,11 +60,11 @@ namespace compressor {
         return minHeap.extractMin();  // Caller must manage the returned root
     }
 
-    // Read the contents of a file and calculate character frequencies.
-    string readFile(const string& filePath) {
-        ifstream inFile(filePath, ios::binary); // Open in binary mode to preserve all data
+    // Function to read the file and generate the frequency map
+    string readFile(const fs::path& filePath) {
+        std::ifstream inFile(filePath, std::ios::binary); // Open in binary mode to preserve all data
         if (!inFile) {
-            cerr << "Cannot open file: " << filePath << endl;
+            std::cerr << "Cannot open file: " << filePath << std::endl;
             return "";
         }
 
@@ -76,56 +77,43 @@ namespace compressor {
 
         // Print frequency table for debugging
         for (const auto& pair : frequency_map) {
-            cout << pair.first << " " << pair.second << endl;
+            std::cout << pair.first << " " << pair.second << std::endl;
         }
 
         inFile.close();
         return "File successfully read.\n";
     }
 
-    // Compress a file using Huffman coding.
-    void compress(const string& inputFileName, const string& outputFileName) {
-        // Build the Huffman tree  
-        cout << "\nBuilding the Huffman tree...\n";
+    // Compress a file using Huffman coding
+    void compress(const fs::path& inputFileName, const fs::path& outputFileName) {
+        std::cout << "\nBuilding the Huffman tree...\n";
         HuffmanNode* root = buildHuffmanTree(frequency_map, theMinHeap);
-        cout << "\nHuffman tree built.\n";
+        std::cout << "\nHuffman tree built.\n";
         root->printTree(root);
 
-        // Encode the Huffman tree
-        cout << "\nEncoding the Huffman tree...\n";
+        std::cout << "\nEncoding the Huffman tree...\n";
         root->encode("", HuffmanCode);
-        cout << "\nHuffman tree encoded.\n";
+        std::cout << "\nHuffman tree encoded.\n";
 
-        // Write the encoded data to the output file
-        ofstream outFile(outputFileName, ios::binary); // Open in binary mode to preserve all data
+        std::ofstream outFile(outputFileName, std::ios::binary); // Open in binary mode to preserve all data
         if (!outFile) {
-            cerr << "Cannot create file: " << outputFileName << endl;
+            std::cerr << "Cannot create file: " << outputFileName << std::endl;
             return;
         }
 
-        // Write the frequency table as metadata
-        size_t size = frequency_map.size();
-        outFile.write(reinterpret_cast<const char*>(&size), sizeof(size));
-        for (const auto& pair : frequency_map) {
-            outFile.put(pair.first);
-            outFile.write(reinterpret_cast<const char*>(&pair.second), sizeof(pair.second));
-        }
-
-        // Read the input file and write the encoded content
-        ifstream inFile(inputFileName, ios::binary);
+        std::ifstream inFile(inputFileName, std::ios::binary);
         char tempChar;
-        string encodedContent;
+        std::string encodedContent;
         while (inFile.get(tempChar)) {
             encodedContent += HuffmanCode[tempChar];
         }
 
-        // Convert the encoded string to binary format
         while (encodedContent.size() % 8 != 0) {
             encodedContent += '0'; // Pad with zeros to make a full byte
         }
 
         for (size_t i = 0; i < encodedContent.size(); i += 8) {
-            bitset<8> byte(encodedContent.substr(i, 8));
+            std::bitset<8> byte(encodedContent.substr(i, 8));
             outFile.put(static_cast<unsigned char>(byte.to_ulong()));
         }
 
@@ -133,17 +121,16 @@ namespace compressor {
         outFile.close();
     }
 
-    // Decompress a file using Huffman coding.
-    void decompress(const string& inputFileName, const string& outputFileName) {
-        ifstream infile(inputFileName, ios::binary);
-        ofstream outfile(outputFileName, ios::binary);
+    // Decompress a file using Huffman coding
+    void decompress(const fs::path& inputFileName, const fs::path& outputFileName) {
+        std::ifstream infile(inputFileName, std::ios::binary);
+        std::ofstream outfile(outputFileName, std::ios::binary);
 
         if (!infile) {
-            cerr << "Cannot open file: " << inputFileName << endl;
+            std::cerr << "Cannot open file: " << inputFileName << std::endl;
             return;
         }
 
-        // Rebuild the frequency table from the metadata
         size_t frequencyTableSize;
         infile.read(reinterpret_cast<char*>(&frequencyTableSize), sizeof(frequencyTableSize));
         frequency_map.clear();
@@ -155,10 +142,8 @@ namespace compressor {
             frequency_map[ch] = freq;
         }
 
-        // Build the Huffman tree
         HuffmanNode* root = buildHuffmanTree(frequency_map, theMinHeap);
-
-        HuffmanNode* huffmanPtr = root; // Temporary pointer to traverse the tree
+        HuffmanNode* huffmanPtr = root;
         root->decode(huffmanPtr, infile, outfile);
 
         infile.close();
