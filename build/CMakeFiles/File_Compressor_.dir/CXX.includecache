@@ -26,13 +26,17 @@ map
 fstream
 -
 
-/workspaces/File_Compressor_/src/main.cpp
+/workspaces/File_Compressor_/src/compressor.cpp
 compressor.h
 /workspaces/File_Compressor_/src/compressor.h
 huffman.h
 /workspaces/File_Compressor_/src/huffman.h
+fstream
+-
 iostream
 -
-filesystem
+map
+-
+bitset
 -
 

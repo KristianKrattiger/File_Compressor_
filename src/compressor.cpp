@@ -62,27 +62,34 @@ namespace compressor {
 
     // Function to read the file and generate the frequency map
     string readFile(const fs::path& filePath) {
-        std::ifstream inFile(filePath, std::ios::binary); // Open in binary mode to preserve all data
-        if (fs::exists(filePath)){
-            std::cerr << "Cannot open file: " << filePath << std::endl;
-            return "";
-        }
-
-        frequency_map.clear(); // Clear previous data
-
-        char tempChar;
-        while (inFile.get(tempChar)) {
-            frequency_map[tempChar]++;
-        }
-
-        // Print frequency table for debugging
-        for (const auto& pair : frequency_map) {
-            std::cout << pair.first << " " << pair.second << std::endl;
-        }
-
-        inFile.close();
-        return "File successfully read.\n";
+    // First, check if the file exists before trying to open it
+    if (!fs::exists(filePath)) {
+        std::cerr << "File does not exist: " << filePath << std::endl;
+        return "";
     }
+
+    std::ifstream inFile(filePath, std::ios::binary); // Open in binary mode to preserve all data
+    if (!inFile) {
+        std::cerr << "Cannot open file: " << filePath << std::endl;
+        return "";
+    }
+
+    frequency_map.clear(); // Clear previous data
+
+    char tempChar;
+    while (inFile.get(tempChar)) {
+        frequency_map[tempChar]++;
+        std::cout << tempChar;
+    }
+
+    // Print frequency table for debugging
+    for (const auto& pair : frequency_map) {
+        std::cout << pair.first << " " << pair.second << std::endl;
+    }
+
+    inFile.close();
+    return "File successfully read.\n";
+}
 
     // Compress a file using Huffman coding
     void compress(const fs::path& inputFileName, const fs::path& outputFileName) {
