@@ -1,73 +1,111 @@
-/**
- * @brief Author: [Your Name]
- *
- * This file contains the implementation of a file compressor using Huffman coding.
- * The compressor provides functions to read a file, compress it using Huffman coding,
- * and decompress a file that was previously compressed using Huffman coding.
- *
- * The compressor uses a MinHeap to build the Huffman tree and stores the character
- * frequencies in a map. It also provides functions to encode and decode the Huffman tree.
- *
- * The main functions in this file are:
- * - `readFile`: Reads the contents of a file and calculates character frequencies.
- * - `compress`: Compresses a file using Huffman coding.
- * - `decompress`: Decompresses a file using Huffman coding.
- *
- * The HuffmanNode class represents a node in the Huffman tree and provides functions
- * to print the tree, encode the tree, and decode the tree.
- *
- * The MinHeap class is used to build the Huffman tree by maintaining a min-heap of nodes.
- * It provides functions to insert nodes, extract the minimum node, and get the size of the heap.
- *
- * The `frequency_map` and `HuffmanCode` maps are used to store character frequencies and
- * Huffman codes respectively.
- */
-
 #include "compressor.h"
 #include "huffman.h"
-#include <iostream>
+#include "fileHandles.h"
+
 #include <filesystem>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
 
 using namespace std;
 using namespace compressor;
+using namespace fileHandles;
 namespace fs = std::filesystem;
 
 int main() {
-    fs::path inputFilePath, outputFilePath;
+    string inputPath, outputPath;
     char choice;
 
-    std::cout << "|WELCOME TO THE FILE COMPRESSOR|" << std::endl
-              << "--------------------------------" << std::endl;
-    std::cout << "This program uses Huffman coding to compress and decompress files." << std::endl;
+    cout << "Current Working Directory: " << fs::current_path() << endl;
+    cout << "|WELCOME TO THE FILE COMPRESSOR|" << endl
+         << "--------------------------------" << endl;
+    cout << "This program uses Huffman coding to compress and decompress files." << endl;
 
     while (true) {
-        std::cout << "Enter the path to the file you want to compress" << std::endl;
-        std::cout << "Example: C:\\Users\\your name\\Documents\\example.txt" << std::endl;  // Provide an example based on the current directory
-        std::cout << "File path: ";
-        std::cin >> inputFilePath;
-        inputFilePath = fs::absolute(inputFilePath);
-        std::cout << readFile(inputFilePath) << std::endl;
+        cout << "Enter the path to the file you want to compress" << endl;
+        cout << "Example: C:\\Users\\your_name\\Documents\\example.txt" << endl;
+        cout << "File path: ";
+        getline(cin, inputPath);
+        fs::path filePath_in(inputPath);
+               
+        if (!fileExists(filePath_in)) {
+            cout << "File does not exist. Please try again." << endl;
+            continue; // Prompt user again if file does not exist
+        }
+        fs::copy_file(filePath_in, fs::current_path() / "infile.txt");
 
-        std::cout << "Enter the path to save the compressed file:" << std::endl;
-        std::cout << "Example: C:\\Users\\your name\\Documents\\example_compressed.bin" << std::endl;  // Provide an example
-        std::cin >> outputFilePath;
-        outputFilePath = fs::absolute(outputFilePath);
-        compress(inputFilePath, outputFilePath);
-        std::cout << "File successfully compressed to " << outputFilePath << std::endl;
+        cout << "Reading file from: " << filePath_in << endl;
+        readFile("infile.txt");
+        cout << endl;
 
-        std::cout << "Do you want to decompress a file? (y/n): ";
-        std::cin >> choice;
+        cout << "Enter the path to save the compressed file:" << endl;
+        cout << "Example: C:\\Users\\your_name\\Documents\\example_compressed.bin" << endl;
+        getline(cin, outputPath);
+        fs::path filePath_out(outputPath);
+        string outfileName = filePath_out.string();
+
+        if(!fileExists(filePath_out)){
+            char createFile;
+            cout << "File does not exist: " << filePath_out << endl;
+            cout << "Would you like to create the file? (y/n): ";
+            cin >> createFile;
+            cin.ignore(); // Clear the newline character left in the buffer
+            if(createFile == 'y' || createFile == 'Y'){
+                ofstream outfile(outfileName);
+                if (!outfile) {
+                    cout << "Failed to create file. Please try again." << endl;
+                    continue;
+                }
+                outfile.close();
+            }
+            else {
+                continue;
+            }
+        }   
+        compress("infile.txt", outfileName);
+        cout << "File successfully compressed to " << outfileName << endl;
+
+        cout << "Do you want to decompress a file? (y/n): ";
+        cin >> choice;
+        cin.ignore(); // Clear the newline character left in the buffer
         if (choice == 'y' || choice == 'Y') {
-            std::cout << "Enter the path to the file you want to decompress:" << std::endl;
-            std::cout << "Example: " << fs::current_path() / "example_compressed.bin" << std::endl;
-            std::cin >> inputFilePath;
-            inputFilePath = fs::absolute(inputFilePath);
-            std::cout << "Enter the path to save the decompressed file:" << std::endl;
-            std::cout << "Example: " << fs::current_path() / "example_decompressed.txt" << std::endl;
-            std::cin >> outputFilePath;
-            outputFilePath = fs::absolute(outputFilePath);
-            decompress(inputFilePath, outputFilePath);
-            std::cout << "File successfully decompressed to " << outputFilePath << std::endl;
+            cout << "Enter the path to the file you want to decompress:" << endl;
+            cout << "Example: C:\\Users\\your_name\\Documents\\example_compressed.bin" << endl;
+            getline(cin, inputPath);
+            fs::path filePath_Din(inputPath);
+
+            if (!fileExists(filePath_Din)) {
+                cout << "File does not exist. Please try again." << endl;
+                continue; // Prompt user again if file does not exist
+            }
+            fs::copy_file(filePath_Din, fs::current_path() / "infile.bin");
+
+            cout << "Enter the path to save the decompressed file:" << endl;
+            cout << "Example: C:\\Users\\your_name\\Documents\\example_decompressed.txt" << endl;
+            getline(cin, outputPath);
+            fs::path filePath_Dout(outputPath);
+            string DoutfileName = filePath_Dout.string();
+
+            if(!fileExists(filePath_Dout)){
+                char createFile;
+                cout << "File does not exist: " << filePath_Dout << endl;
+                cout << "Would you like to create the file? (y/n): ";
+                cin >> createFile;
+                cin.ignore(); // Clear the newline character left in the buffer
+                if(createFile == 'y' || createFile == 'Y'){
+                    ofstream outfile(DoutfileName);
+                    if (!outfile) {
+                        cout << "Failed to create file. Please try again." << endl;
+                        continue;
+                    }
+                    outfile.close();
+                }
+                else {
+                    continue;
+                }
+            }   
+            decompress("infile.bin", DoutfileName);
+            cout << "File successfully decompressed to " << DoutfileName << endl;
         } else {
             break;
         }

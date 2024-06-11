@@ -13,5 +13,10 @@
   "directory": "/workspaces/File_Compressor_/build",
   "command": "/usr/bin/clang++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/huffman.cpp.o -c /workspaces/File_Compressor_/src/huffman.cpp",
   "file": "/workspaces/File_Compressor_/src/huffman.cpp"
+},
+{
+  "directory": "/workspaces/File_Compressor_/build",
+  "command": "/usr/bin/clang++   -I/workspaces/File_Compressor_/include  -g   -std=gnu++17 -o CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/fileHandles.cpp.o -c /workspaces/File_Compressor_/src/fileHandles.cpp",
+  "file": "/workspaces/File_Compressor_/src/fileHandles.cpp"
 }
 ]

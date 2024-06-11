@@ -13,7 +13,15 @@ string
 -
 map
 -
+
+/workspaces/File_Compressor_/include/fileHandles.h
 filesystem
+-
+fstream
+-
+map
+-
+string
 -
 
 /workspaces/File_Compressor_/include/huffman.h
@@ -26,17 +34,19 @@ map
 fstream
 -
 
-/workspaces/File_Compressor_/src/compressor.cpp
+/workspaces/File_Compressor_/src/main.cpp
 compressor.h
 /workspaces/File_Compressor_/src/compressor.h
 huffman.h
 /workspaces/File_Compressor_/src/huffman.h
-fstream
+fileHandles.h
+/workspaces/File_Compressor_/src/fileHandles.h
+filesystem
 -
 iostream
 -
-map
+fstream
 -
-bitset
+algorithm
 -
 

@@ -150,6 +150,33 @@ workspaces/File_Compressor_/src/compressor.cpp.s:
 	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.s
 .PHONY : workspaces/File_Compressor_/src/compressor.cpp.s
 
+workspaces/File_Compressor_/src/fileHandles.o: workspaces/File_Compressor_/src/fileHandles.cpp.o
+
+.PHONY : workspaces/File_Compressor_/src/fileHandles.o
+
+# target to build an object file
+workspaces/File_Compressor_/src/fileHandles.cpp.o:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/fileHandles.cpp.o
+.PHONY : workspaces/File_Compressor_/src/fileHandles.cpp.o
+
+workspaces/File_Compressor_/src/fileHandles.i: workspaces/File_Compressor_/src/fileHandles.cpp.i
+
+.PHONY : workspaces/File_Compressor_/src/fileHandles.i
+
+# target to preprocess a source file
+workspaces/File_Compressor_/src/fileHandles.cpp.i:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/fileHandles.cpp.i
+.PHONY : workspaces/File_Compressor_/src/fileHandles.cpp.i
+
+workspaces/File_Compressor_/src/fileHandles.s: workspaces/File_Compressor_/src/fileHandles.cpp.s
+
+.PHONY : workspaces/File_Compressor_/src/fileHandles.s
+
+# target to generate assembly for a file
+workspaces/File_Compressor_/src/fileHandles.cpp.s:
+	$(MAKE) -f CMakeFiles/File_Compressor_.dir/build.make CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/fileHandles.cpp.s
+.PHONY : workspaces/File_Compressor_/src/fileHandles.cpp.s
+
 workspaces/File_Compressor_/src/huffman.o: workspaces/File_Compressor_/src/huffman.cpp.o
 
 .PHONY : workspaces/File_Compressor_/src/huffman.o
@@ -216,6 +243,9 @@ help:
 	@echo "... workspaces/File_Compressor_/src/compressor.o"
 	@echo "... workspaces/File_Compressor_/src/compressor.i"
 	@echo "... workspaces/File_Compressor_/src/compressor.s"
+	@echo "... workspaces/File_Compressor_/src/fileHandles.o"
+	@echo "... workspaces/File_Compressor_/src/fileHandles.i"
+	@echo "... workspaces/File_Compressor_/src/fileHandles.s"
 	@echo "... workspaces/File_Compressor_/src/huffman.o"
 	@echo "... workspaces/File_Compressor_/src/huffman.i"
 	@echo "... workspaces/File_Compressor_/src/huffman.s"
