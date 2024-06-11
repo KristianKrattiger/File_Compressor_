@@ -35,7 +35,7 @@ int main() {
         fs::copy_file(filePath_in, fs::current_path() / "infile.txt");
 
         cout << "Reading file from: " << filePath_in << endl;
-        readFile("infile.txt");
+        readFileHUF("infile.txt");
         cout << endl;
 
         cout << "Enter the path to save the compressed file:" << endl;

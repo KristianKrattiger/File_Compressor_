@@ -29,7 +29,7 @@ namespace fileHandles {
         outFile.close();
     }
 
-    void readFile(const std::string& filePath) {
+    void readFileHUF(const std::string& filePath) {
         cout << "Reading file: " << filePath << endl;
         ifstream inFile(filePath, ios::binary);
         if (!inFile) {
