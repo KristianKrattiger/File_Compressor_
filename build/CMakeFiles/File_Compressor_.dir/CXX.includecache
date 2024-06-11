@@ -34,6 +34,20 @@ map
 fstream
 -
 
+/workspaces/File_Compressor_/src/compressor.cpp
+compressor.h
+/workspaces/File_Compressor_/src/compressor.h
+huffman.h
+/workspaces/File_Compressor_/src/huffman.h
+fstream
+-
+iostream
+-
+map
+-
+bitset
+-
+
 /workspaces/File_Compressor_/src/fileHandles.cpp
 fileHandles.h
 /workspaces/File_Compressor_/src/fileHandles.h
@@ -46,6 +60,16 @@ algorithm
 filesystem
 -
 map
+-
+
+/workspaces/File_Compressor_/src/huffman.cpp
+huffman.h
+/workspaces/File_Compressor_/src/huffman.h
+algorithm
+-
+iostream
+-
+bitset
 -
 
 /workspaces/File_Compressor_/src/main.cpp

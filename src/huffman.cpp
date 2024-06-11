@@ -110,7 +110,7 @@ HuffmanNode* MinHeap::extractMin() {
     std::pop_heap(heap.begin(), heap.end(), HuffmanNode::HuffmanCompare()); // Move smallest to end
     HuffmanNode* minNode = heap.back(); // Get the smallest element
 
-    heap.pop_back(); // Remove it from the vector
+    heap.pop_back(); // Remove it from the heap
     return minNode;
 }
 
