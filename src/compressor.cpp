@@ -1,14 +1,14 @@
 #include "compressor.h"
 #include "huffman.h"
+#include "fileHandles.h"
 #include <fstream>
 #include <iostream>
 #include <map>
 #include <bitset>
 
 using namespace std;
-
-namespace compressor {
-    map<char, unsigned int> frequency_map; // Map to store the frequency of each character in the file
+using namespace fileHandles;
+namespace compressor { 
     map<char, string> HuffmanCode;         // Map to store the Huffman code for each character
     MinHeap theMinHeap;                    // MinHeap to manage the Huffman nodes
 

@@ -3,6 +3,7 @@
 
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/compressor.cpp.o
  /workspaces/File_Compressor_/include/compressor.h
+ /workspaces/File_Compressor_/include/fileHandles.h
  /workspaces/File_Compressor_/include/huffman.h
  /workspaces/File_Compressor_/src/compressor.cpp
 CMakeFiles/File_Compressor_.dir/workspaces/File_Compressor_/src/fileHandles.cpp.o

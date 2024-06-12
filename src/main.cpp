@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
     // Display the current working directory
     cout << "Current Working Directory: " << fs::current_path() << endl;
     cout << "|WELCOME TO THE FILE COMPRESSOR|" << endl
-         << "--------------------------------" << endl;
+         << "________________________________" << endl;
     cout << "This program uses Huffman coding to compress and decompress files." << endl;
 
     if (mode == "compress") {

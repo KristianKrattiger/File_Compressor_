@@ -19,18 +19,7 @@ namespace fileHandles {
         }
         return true;
     }
-
-    // Writes binary data to a file
-    void writeBinaryFile(const std::string& filename, const char* data, size_t dataSize) {
-        std::ofstream outFile(filename, std::ios::binary | std::ios::out);
-        if (!outFile) {
-            std::cerr << "Cannot open file: " << filename << std::endl;
-            return;
-        }
-        outFile.write(data, dataSize); // Write the binary data to the file
-        outFile.close();
-    }
-
+    
     // Reads a file and builds a frequency map of its characters
     void readFileHUF(const std::string& filePath) {
         cout << "Reading file: " << filePath << endl;

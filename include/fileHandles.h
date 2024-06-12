@@ -14,7 +14,6 @@ namespace fileHandles {
     //function prototypes
     bool fileExists(const std::filesystem::path& path);
     std::string correctPath(const std::string& pathStr);
-    void writeBinaryFile(const std::string& filename, const char* const& data, size_t dataSize);
     void readFileHUF(const std::string& filePath);
 };
 
